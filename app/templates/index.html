@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href='{{ url_for("static", filename="css/style.css") }}'>
+    <script src='{{ url_for("static", filename="js/spiski.js") }}'></script>
+    <body style='width: 1200px; margin: auto'>
+    <p style='text-align: right; font-family: ChaletE; font-size: 48px'>Адреса, подлежащие обслуживанию</p>
+
+    <div class="shruft" id="USD">Доллар США $ — 00,0000 руб.</div>
+    <div class="shruft2" id="EUR">Евро € — 00,0000 руб.</div>
+
+    <script>
+        function CBR_XML_Daily_Ru(rates) {
+            function trend(current, previous) {
+                if (current > previous) return ' ▲';
+                if (current < previous) return ' ▼';
+                return '';
+            }
+
+            var USDrate = rates.Valute.USD.Value.toFixed(4).replace('.', ',');
+            var USD = document.getElementById('USD');
+            USD.innerHTML = USD.innerHTML.replace('00,0000', USDrate);
+            USD.innerHTML += trend(rates.Valute.USD.Value, rates.Valute.USD.Previous);
+
+            var EURrate = rates.Valute.EUR.Value.toFixed(4).replace('.', ',');
+            var EUR = document.getElementById('EUR');
+            EUR.innerHTML = EUR.innerHTML.replace('00,0000', EURrate);
+            EUR.innerHTML += trend(rates.Valute.EUR.Value, rates.Valute.EUR.Previous);
+        }
+    </script>
+
+    <script src="//www.cbr-xml-daily.ru/daily_jsonp.js" async></script>
+
+ <div class="shruft3">На нашем сайте активно используются<br>транзакции в новой широко известной в узких кругах валюте</div>
+ <div class="shruft" style='margin-top: 15px'><span id="USDBIT"></span></div>
+ <div class="shruft"><span id="EURBIT"></span></div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src='{{ url_for("static", filename="js/bitok.js") }}'></script>
+
+<div id="controls">
+    <button id="collapseAll">Скрыть всё</button>
+    <button id="expandAll">Раскрыть всё</button>
+  </div>
+  <div class="row">
+    <div class="column">
+      <ul class="list">
+        <div class="title">Расширенный список магазинов в Москве (ЦАО)</div>
+        <li>Борисоглебский переулок 16</li>
+        <li>Денежный переулок 12</li>
+        <li>Малая Молчановка, улица 43</li>
+        <li>Малый Афанасьевский переулок 34</li>
+        <li>Малый Ржевский переулок 77</li>
+        <li>Сивцев Вражек, переулок 1</li>
+        <li>Смоленский 1-й, переулок 66</li>
+        <li>Троилинский переулок 2/6</li>
+        <li>Филипповский переулок 4</li>
+        <li>Шломина, проезд 22</li>
+      </ul>
+      <ul class="list">
+        <div class="title">Расширенный список магазинов в Москве (САО)</div>
+        <li>8 Марта 4-я, улица 65</li>
+        <li>Бусиновская Горка, улица 12</li>
+        <li>Венецианова, улица 44</li>
+        <li>Подрезковская 3-я, улица 75</li>
+        <li>Старофилинская улица 88</li>
+        <li>Сурикова, улица 34</li>
+      </ul>
+      <ul class="list">
+        <div class="title">Расширенный список магазинов в Москве (ВАО)</div>
+        <li>Боевская 2-я, улица 5</li>
+        <li>Большой Купавенский проезд 12</li>
+        <li>Глебовская улица 4</li>
+        <li>Подрезковская 3-я, улица 75</li>
+        <li>Преображенская улица 86</li>
+        <li>Салтыковская улица 31</li>
+        <li>Могильная застройка 14</li>
+        <li>Потерянной юности, улица 17</li>
+      </ul>
+      <ul class="list">
+        <div class="title">Расширенный список магазинов в Москве (ЮЗАО)</div>
+        <li>Белогорская 1-я, улица 6</li>
+        <li>Джанкойский проезд 11</li>
+        <li>Железногорская 5-я, улица 4 (склад 164 4)</li>
+        <li>Железногорская 6-я, улица 4 (склад 220 2)</li>
+        <li>Хо Ши Мина, площадь 2</li>
+      </ul>
+      <ul class="list">
+        <div class="title">Расширенный список магазинов в Санкт-Петербурге</div>
+        <li>Новомалино, улица 55</li>
+        <li>Проезд N 5526, проезд 6</li>
+        <li>Отчаянных студентов улица 42</li>
+        <li>Фирсановское шоссе 237</li>
+        <li>Бобыльская улица 55</li>
+        <li>Гаванская улица, 66</li>
+        <li>Днепропетровская улица 57</li>
+        <li>Кушелевская дорога 333</li>
+        <li>Никольская площадь 4</li>
+        <li>набережная реки Волковки 54</li>
+        <li>площадь Собчака 2</li>
+        <li>Фрилансерское шоссе 300$</li>
+        <li>Черниговский переулок 43</li>
+      </ul>
+    </div>
+    <div class="column">
+      <ol class="list">
+        <div class="title">Список обслуживающих складов город Москва</div>
+        <li>Склад N1509-74(12)</li>
+        <li>Cклад N7444a1382an</li>
+        <li>Cклад N0505C99NAAHELn</li>
+        <li>Склад N2101-76(12)</li>
+        <li>Cклад N1202aM0002aM</li>
+        <li>Cклад N1304aV999AN</li>
+      </ol>
+      <ol class="list">
+        <div class="title">Список складов город Ворсино (Калужская область)</div>
+        <li>N9999-74(12)</li>
+        <li>N9999a1382an</li>
+        <li>N999952Nn</li>
+        <li>N91-76(12)</li>
+        <li>N92aM0002aM</li>
+        <li>N94aV999AN</li>
+        <li>N9999-76(12)</li>
+        <li>N9999a138655n</li>
+        <li>N99995445</li>
+        <li>N91-766</li>
+        <li>N92aM000544(6)</li>
+        <li>N94aV9965N</li>
+      </ol>
+      <ol class="list">
+        <div class="title">Список обслуживающих складов город Санкт-Петербург</div>
+        <li>Склад N1566-74(12)</li>
+        <li>Cклад N7444a0505Д12</li>
+      </ol>
+      <ol class="list">
+        <div class="title">Список обслуживающих складов город Рига</div>
+        <li>896R1231</li>
+        <li>MN0505AM74(12)</li>
+      </ol>
+      <ol class="list">
+        <div class="title">Список обслуживающих складов город Киев</div>
+        <li>5561512KV1</li>
+        <li>74KI(12)LL98</li>
+      </ol>
+    </div>
+  </div>
+ </body>
+{% endblock %}

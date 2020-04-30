@@ -1,0 +1,177 @@
+@font-face {
+	font-family: ChaletE;
+	src: url("../fonts/ChaletE-LondonSixty.otf");
+}
+
+@font-face {
+	font-family: DINPro;
+	src: url("../fonts/DINPro-CondensedMedium.ttf");
+}
+
+* {
+	transition: all 300ms;
+}
+
+.base-head {
+	font-family: ChaletE;
+	font-size: 28px;
+	margin-top: 30px;
+	display: flex;
+	width: 100%;
+	flex: 2;
+	flex-direction: row;
+  	justify-content: center;
+  	text-align: center;
+}
+
+a[href] {
+  	font-size: 1em;
+  	color: #000000;
+  	text-decoration: none;
+}
+
+form {
+	font-family: ChaletE;
+	text-align: center;
+}
+
+.form {
+	text-align: center;
+	font-size: 24px;
+}
+
+#badhome {
+	font-family: ChaletE;
+	font-size: 1em;
+  	color: #ff0000;
+}
+
+.register-message {
+	font-family: ChaletE;
+	font-size: 1em;
+  	color: #000000;
+  	text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+	color: #000000;
+	font-family: DINPro;
+	font-size: 36px;
+	margin-top: 10px;
+	margin-left: 10px;
+	border: 0;
+	text-align: center;
+	padding: 3px;
+	background-color: #DADADA;
+}
+
+.submit {
+	margin-top: 10px;
+	font-family: DINPro;
+	font-size: 2.3em;
+	color: #ffffff;
+	border: 0;
+	padding: 3px 60px;
+	background-color: #DADADA;
+}
+
+
+/********************************************************/
+
+
+.shruft {
+	font-family: DINPro;
+	font-size: 1.7em;
+	text-align: right;
+}
+
+.shruft2 {
+	font-family: DINPro;
+	font-size: 1.7em;
+	text-align: right;
+}
+
+.shruft3 {
+	font-family: DINPro;
+	font-size: 1em;
+	text-align: right;
+	margin-top: 10px;
+}
+
+input[type=submit], button {
+	font-family: DINPro;
+	font-size: 2.3em;
+	color: #ffffff;
+	margin-top: 15px;
+	padding: 5px 60px;
+	border: 0;
+	text-align: right;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.row {
+	font-family: ChaletE;
+	display: flex;
+	flex-direction: row;
+}
+
+.column {
+  flex: 1;
+}
+
+#controls {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.list > .title {
+  display: block;
+  padding: 5px 5px 5px 35px; 
+  background-color: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  cursor: pointer;
+  position: relative; 
+}
+
+.list > .title:before {
+  content: "";
+  width: 25px;
+  height: 100%;
+  position: absolute; 
+  left: 5px;
+  top: 0;
+  opacity: 0.6;
+  cursor: pointer;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7.5%204.5L6.44%205.56%209.88%209l-3.44%203.44L7.5%2013.5%2012%209z%22%2F%3E%3C%2Fsvg%3E'); /* запихаем картинку прямо в CSS для простоты */
+  transform: rotate(90deg);
+  transition: all 200ms;
+}
+
+.list > .title:hover:before {
+  opacity: 1.0;
+}
+
+.list.collapsed > li {
+  display: none;
+}
+
+.list.collapsed > .title {
+  color: #000000;
+}
+
+.list.collapsed > .title:before {
+  transform: rotate(0deg);
+}
+
+.list > li.add {
+  list-style: none;
+  cursor: pointer;
+}
+
+.list > li.add:hover {
+  color: #f96e98;
+}

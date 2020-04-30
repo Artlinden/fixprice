@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href='{{ url_for("static", filename="css/style.css") }}'>
+    <form class="form" action="" method="post" novalidate>
+        <h1>Вход</h1>
+        {{ form.hidden_tag() }}
+        <p type="text">
+            Логин<br>
+            {{ form.username(size=24) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">Значение поля не было заполнено</span>
+            {% endfor %}
+        </p>
+        <p type="password">
+            Пароль<br>
+            {{ form.password(size=24) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">Значение поля не было заполнено</span>
+            {% endfor %}
+        </p>
+        <button class="submit"
+ 						onclick="">Войти</button>
+                    {% with messages = get_flashed_messages() %}
+
+        {% endwith %}
+    </form>
+    <p style="font-size: 24px" class="register-message"><a href="{{ url_for('register') }}">Создание учётной записи</a></p>
+{% endblock %}
